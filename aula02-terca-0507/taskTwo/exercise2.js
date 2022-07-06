@@ -6,11 +6,9 @@ function exercise2() {
   let soma = 0
   let contador = 50
 
-  for (let i = 0; 0 <= contador; i++) {
-    if (i % 2 == 0) {
-      soma += i
-      contador -= 1
-    }
+  for (let i = 0; 0 <= contador; i+=2) {
+    soma += i
+    contador -= 1
   }
 
   console.log(soma)
