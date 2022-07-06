@@ -9,6 +9,8 @@ function exercise1() {
   console.log(resultQuestion)
 }
 
+
+
 /*
 2) Crie um programa que imprima no console os números de 1 até 10;
 */
@@ -30,11 +32,12 @@ function exercise3() {
   let sumNumbers = 0
 
   for(number of listNumbers) {
-    sumNumbers += number
+    sumNumbers = sumNumbers + number
   }
 
   console.log(sumNumbers)
 }
+
 
 
 /*
@@ -57,4 +60,6 @@ function exercise4() {
   } while (resultQuestion == "1")
 
 }
+
+
 
