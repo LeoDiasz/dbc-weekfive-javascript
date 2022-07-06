@@ -19,7 +19,7 @@
 
 
 function exercise1() {
-  const marcas = [ 'Fiat', 'Ford', 'Honda', 'Volkswagen', 'Land', 'BMW', 'Peugeot', 'Renault' ];
+  const marcas = [ 'Fiat', 'Ford', 'Honda', 'Volkswagen', 'Land', 'BMW', 'Peugeot', 'Renault', "Gol" ];
   const modelos = [ 'Uno', 'Mustang', 'Civic', 'Jetta', 'Rover', 'X5', '208', 'Sandero', 'Duster' ];
   const anosFabricacao = [ 2005, 2015, 2018, 2010, 2022, 2022, 2008, 2009, 2007 ]
 

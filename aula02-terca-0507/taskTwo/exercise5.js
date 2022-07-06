@@ -12,15 +12,21 @@
 	60 (não deve imprimir mais)
 */
 
+let counter = 1
 
-function counterFunction(counter) {
+function counterFunction() {
+	
 	console.log(counter)
-	return counter += 1
+
+	if (counter == 60) {
+		clearInterval(intervalCounter)
+	} 
+
+	counter += 1
+	
 }
 
-
-setInterval(counterFunction, 1000, counter)
-
+const intervalCounter = setInterval(counterFunction, 1000)
 
 
 
