@@ -25,7 +25,7 @@ function exercise1() {
 
   let escolha = prompt(`Escolha uma das marcas: ${marcas}`)
   
-  for(let i = 0; i <= marcas.length; i ++) {
+  for(let i = 0; i < marcas.length; i ++) {
     if (marcas[i].toLowerCase() === escolha.toLowerCase()) {
       console.log(`Marca: ${marcas[i]}.\nModelo: ${modelos[i]}.\nAno: ${anosFabricacao[i]}`)
       return [marcas[i], modelos[i], anosFabricacao[i]]
