@@ -27,7 +27,7 @@ function removeCharacterInList(listElements, elementRemove) {
 
 const listElements = ['a', "b", "d", "c", "a", "a", "b"]
 
-const result = removeCharacterInList(listElements, "a")
+const result = removeCharacterInList(listElements, 6)
 
 console.log(result)
 
