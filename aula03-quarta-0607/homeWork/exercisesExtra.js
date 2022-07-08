@@ -7,6 +7,8 @@
 */
 
 
+
+
 /*
 2) Declare 2 variáveis que recebem 2 informações inseridas pelo usuário;
 */

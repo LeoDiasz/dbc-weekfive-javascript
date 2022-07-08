@@ -25,7 +25,7 @@ function removeSpaceRepeatText(text) {
 	
 }
 
-const result = removeSpaceRepeatText(" 4242424       4242 ")
+const result = removeSpaceRepeatText("OI    ! ESSA É  UMA   STRING   QUALQUER ")
 
 console.log(result)
 // #endregion

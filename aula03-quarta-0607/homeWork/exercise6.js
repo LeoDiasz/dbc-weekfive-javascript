@@ -13,13 +13,21 @@ function sortArray(listNumbers) {
     return messageError
  }
 
- for (let i = 0; i < listNumbers.length; i++) {
-  console.log(i)
-  
+ for (let i = 0; i < listNumbers.length - 1 ; i ++) {
+    for (let j = 0 ; i < listNumbers.length - 1; j ++) {
+      if (listNumbers[j] > listNumbers[j + 1]) {
+        let aux = listNumbers[j]
+        listNumbers[j] = listNumbers[j + 1]
+        listNumbers[j + 1] = aux
+      }
+
+    }
  }
 
+
+ console.log(listNumbers)
 }
 
-const listNumbers = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+const listNumbers = [10, 9, 8, 7, 6]
 
 sortArray(listNumbers)
