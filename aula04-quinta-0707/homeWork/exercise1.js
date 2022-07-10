@@ -46,3 +46,6 @@ function combinationsWithFor(text) {
 
 combinationsWithFor("tri")
 
+
+
+
