@@ -194,7 +194,7 @@ const showDescriptionsProducts = (listProducts) => {
 
 }
 
-const ChooseDescription = (listProducts) => {
+const chooseDescription = (listProducts) => {
 
   if(verifyListIsEmpty(listProducts)) {
     return
@@ -278,7 +278,7 @@ while(isNotCloseProgram) {
       break
 
     case 6:
-      ChooseDescription(listProducts)
+      chooseDescription(listProducts)
       break
 
     case 7:
