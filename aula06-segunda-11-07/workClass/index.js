@@ -16,8 +16,11 @@
 // */
 
 
-
 class Pet {
+  nome = ""
+  raca = ""
+  peso = 0
+
   constructor(nome, raca, peso) {
     this.nome = nome,
     this.raca = raca,
@@ -31,6 +34,9 @@ class Pet {
 
 
 class DonoDePet {
+  nome = ""
+  pets = []
+
   constructor(nome, pets) {
     this.nome = nome,
     this.pets = pets 
@@ -53,8 +59,3 @@ const donoOne = new DonoDePet("leonardo", listPets)
 
 donoOne.saudar()
 donoOne.pets[0].latirOuMiar()
-
-
-
-
-
