@@ -17,7 +17,7 @@ class Colaborador {
 class Marcacao {
   day
   hour
-  
+
   constructor (day, hour) {
     this.day = day
     this.hour = hour
@@ -104,9 +104,6 @@ let generateId = 1
 
 const validation = new Validacoes()
 
-const optionsMenu = `1 - Cadastrar colaborador\n 2 - Marcar ponto \n 3 - Editar as horas de uma marcação\n 4 - Ver lista de colaboradores \n 5 - Ver lista de colaboradores que ainda não marcaram o ponto \n 6 - Ver lista de todas as marcações com o nome do colaborador\n 7 - Encerrar`
-
-
 //#region LISTA FUNÇÕES
 const registerNewCollaborator = () => {
 
@@ -175,6 +172,55 @@ const updateHoursPoint = () => {
 
   showListCollaborators()
 
+  const codeCollaborator = parseInt(prompt("Digite o código do colaborador para atualizar horario de uma marcação: "))
+
+  const collaboratorExists = validation.collaboratorExists(listCollaborators, codeCollaborator)
+
+  if(!collaboratorExists) {
+    alert("Colaborador não existe no sistema")
+    return
+  }
+
+  const existsPoints = validation.existsPoints(collaboratorExists)
+
+  if (!existsPoints) {
+    alert(`Colaborador ${collaboratorExists.name} não possui marcação de pontos`)
+    return
+  }
+
+  alert(`Lista marcações do colaborador:\n${existsPoints}`)
+
+  const day = parseInt(prompt("Digite o dia de registro para alteração do horário: "))
+  
+  if (!validation.validateDay(day)) {
+    alert("Digite um dia valido.")
+    return
+  }
+
+  if(!validation.existsDayRegister(collaboratorExists, day)) {
+    alert(`Não existe marcação no dia especificado ${day}`)
+    return
+  }
+
+  const hour = parseFloat(prompt("Digite um novo horário: "))
+
+  if (!validation.validateHour(hour)) {
+    alert("Digite uma hora valida")
+    return
+  }
+
+  collaboratorExists.marcacoes.forEach(marcacao => {
+    if (marcacao.day === day) {
+      alert(`Horario de marcação do dia ${day} alterado.\n Novo hórario: ${hour} - Antigo hórario: ${marcacao.hour}`)
+
+      marcacao.hour = hour
+      return
+    }
+  })
+  
+  return
+  
+
 }
 
 const showListCollaborators = () => {
@@ -236,6 +282,8 @@ const showListPointsForCollaborator = () => {
 //#endregion
 
 const menu = () => {
+
+  const optionsMenu = `1 - Cadastrar colaborador\n 2 - Marcar ponto \n 3 - Editar as horas de uma marcação\n 4 - Ver lista de colaboradores \n 5 - Ver lista de colaboradores que ainda não marcaram o ponto \n 6 - Ver lista de todas as marcações com o nome do colaborador\n 7 - Encerrar`
   
   const chooseOptions = parseInt(prompt(`Seja bem vindo! escolha uma das opções:\n ${optionsMenu}`))
 
