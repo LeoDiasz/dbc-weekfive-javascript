@@ -21,7 +21,7 @@ class Pet {
   raca = ""
   peso = 0
 
-  constructor(nome, raca, peso) {
+  constructor(nome = "", raca = "", peso = 0) {
     this.nome = nome,
     this.raca = raca,
     this.peso = peso
@@ -46,12 +46,16 @@ class DonoDePet {
     const listPets = this.pets.reduce((value, pet) => value + `nome: ${pet.nome} - Raça: ${pet.raca} - Peso: ${pet.peso}\n`, "")
 
     console.log(`Nome dono: ${this.nome}. Lista pets:\n${listPets}`)
+
+    listPets.forEach(item => {
+      
+    })
     
   }
 }
 
 
-const petOne = new Pet("leo", "gato", 50)
+const petOne = new Pet("leo", "gato")
 const petTwo = new Pet("sophia", "cachorro", 40)
 const listPets = [petOne, petTwo]
 
