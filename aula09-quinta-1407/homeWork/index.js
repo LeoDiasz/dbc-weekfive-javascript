@@ -100,20 +100,19 @@ const verifyCollaborator = (event) => {
     return
   }
 
-  const existsStringUpperCase = listPassword.some(caracter => caracter === caracter.toUpperCase())
+  const existsStringUpperCase = listPassword.filter(caracter => isNaN(caracter)).some(caracter => caracter == caracter.toUpperCase())
   
   if (!existsStringUpperCase) {
     alert("Necessário pelo menos uma letra maiuscula na senha.")
     return
   }
 
-  const existsStringLowerCase = listPassword.some(caracter => caracter == caracter.toLowerCase())
+  const existsStringLowerCase = listPassword.filter(caracter => isNaN(caracter)).some(caracter => caracter == caracter.toLowerCase())
 
   if (!existsStringLowerCase) {
     alert("Necessário pelo menos uma letra minuscula na senha.")
     return
   }
-
 
   let newName = ""
 
