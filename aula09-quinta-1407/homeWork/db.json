@@ -1,0 +1,32 @@
+{
+  "colaboradores": [
+    {
+      "id": 1,
+      "nome": "leonardo",
+      "email": "leonardo@leonardo.com",
+      "dataNascimento": "05/05/2001",
+      "senha": "leo123"
+    },
+    {
+      "nome": "leo",
+      "email": "leonardo@leonardo",
+      "senha": "leeo",
+      "dataNascimento": "05/05/2001",
+      "id": 2
+    },
+    {
+      "nome": "Leo",
+      "email": "leonardo@leonardo",
+      "senha": "leonardo@leonard",
+      "dataNascimento": "05/05/2001",
+      "id": 3
+    },
+    {
+      "nome": "Leonardo",
+      "email": "leonardo@leonardo",
+      "senha": "0505201",
+      "dataNascimento": "05/05/2001",
+      "id": 4
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+
+  <title>Home work</title>
+</head>
+<body>
+<header>
+  <img src="assets/logo.png" alt="logo">
+  <button id="button-register">
+    <i class="fa-solid fa-plus"></i>
+    <span>Cadastrar</span>
+  </button>
+</header>
+<main>
+  <section id="collaborators" class="collaborators">
+    <h1 id="text-main" class="text-main">Lista Colaboradores</h1>
+
+    <ul id="list-collaborators" class="list-collaborators">
+      <li class="card-main">
+        <h3>Nome</h3>
+        <h3>Data nascimento</h3>
+        <h3>E-mail</h3>
+      </li>
+    
+    </ul>
+  </section>
+  
+  
+
+  <form id="form-register" class="remove-content">
+    <h2>Cadastro</h2>
+    <input id="input-name" type="text" placeholder="Digite seu nome">
+    <input id="input-email" type="text" placeholder="Digite seu email">
+    <input id="input-password" type="password" placeholder="Digite sua senha">
+    <input id= "input-date" type="text" placeholder ="Digite sua data de nascimento" maxlength="10">
+
+    <button type="submit" id="button-input">Cadastrar</button>
+  </form>
+</main> 
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script type="text/javascript" src="index.js"></script>
+</body>
+</html>
