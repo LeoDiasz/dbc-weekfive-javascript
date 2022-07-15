@@ -90,7 +90,31 @@ const verifyCollaborator = (event) => {
     alert("Necessário 8 caracteres para a senha.")
     return
   }
+
+  const listPassword = valuePassword.split("")
+
+  const existsNumber = listPassword.some(caracter => !isNaN(caracter))
+
+  if(!existsNumber) {
+    alert("Necessário pelo menos um numero na senha.")
+    return
+  }
+
+  const existsStringUpperCase = listPassword.some(caracter => caracter === caracter.toUpperCase())
   
+  if (!existsStringUpperCase) {
+    alert("Necessário pelo menos uma letra maiuscula na senha.")
+    return
+  }
+
+  const existsStringLowerCase = listPassword.some(caracter => caracter == caracter.toLowerCase())
+
+  if (!existsStringLowerCase) {
+    alert("Necessário pelo menos uma letra minuscula na senha.")
+    return
+  }
+
+
   let newName = ""
 
   for (let i = 0; i < valueName.length; i ++) {
