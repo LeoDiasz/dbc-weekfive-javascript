@@ -7,22 +7,22 @@
   list-style: none;
 }
 
-
 body {
   font-family: 'Roboto', sans-serif;
 }
 
 header {
-  height: 8vh;
-
-  padding: 20px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
+  height: 8vh;
+  padding: 20px 0;
 
 }
 
 header > img {
+  cursor: pointer;
   width: 50px;
   height: 50px;
 }
@@ -30,10 +30,10 @@ header > img {
 
 button {
     height: 40px;
+    padding: 0 40px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    padding: 0 40px;
     
     background-color: #713ABD;
     color: #fff;
@@ -106,7 +106,7 @@ form > button {
 }
 
 .card-collaborator > span {
- width: 150px;
+  width: 150px;
 }
 
 .card-collaborator > span:last-child{
@@ -126,6 +126,7 @@ form > button {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
   color: #713ABD;
   padding: 0 40px;
   background-color: #fff;

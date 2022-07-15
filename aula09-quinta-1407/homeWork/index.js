@@ -1,3 +1,4 @@
+
 class Colaborador {
   id
   nome
@@ -13,10 +14,6 @@ class Colaborador {
   }
   
 }
-
-window.onload = (() => {
-  getListCollabotarors()
-})
 
 const alterPageToRegister = (event) => {
 
@@ -79,8 +76,6 @@ const verifyCollaborator = (event) => {
   const valuePassword = inputPassword.value
   const valueDate = inputDate.value
 
-  console.log(valueName, valueEmail, valuePassword, valueDate)
-
   if (!valueName || !valueEmail || !valuePassword || !valueDate) {
     alert("Necessário preencher todos dados")
     return
@@ -93,42 +88,48 @@ const verifyCollaborator = (event) => {
 
   const listPassword = valuePassword.split("")
 
-  const existsNumber = listPassword.some(caracter => !isNaN(caracter))
+  const existsNumberInPassword = listPassword.some(caracter => !isNaN(caracter))
 
-  if(!existsNumber) {
+  if(!existsNumberInPassword) {
     alert("Necessário pelo menos um numero na senha.")
     return
   }
-
-  const existsStringUpperCase = listPassword.filter(caracter => isNaN(caracter)).some(caracter => caracter == caracter.toUpperCase())
   
-  if (!existsStringUpperCase) {
+  const existsStringUpperCaseInPassword = listPassword.filter(caracter => isNaN(caracter)).some(caracter => caracter == caracter.toUpperCase())
+  
+  if (!existsStringUpperCaseInPassword) {
     alert("Necessário pelo menos uma letra maiuscula na senha.")
     return
   }
 
-  const existsStringLowerCase = listPassword.filter(caracter => isNaN(caracter)).some(caracter => caracter == caracter.toLowerCase())
+  const existsStringLowerCaseInPassword = listPassword.filter(caracter => isNaN(caracter)).some(caracter => caracter == caracter.toLowerCase())
 
-  if (!existsStringLowerCase) {
+  if (!existsStringLowerCaseInPassword) {
     alert("Necessário pelo menos uma letra minuscula na senha.")
+    return
+  }
+
+  const existsCharacterSpecialInPassword = listPassword.filter(caracter => isNaN(caracter) && caracter != " " && caracter.toUpperCase() == caracter.toLowerCase())
+
+  if (!existsCharacterSpecialInPassword.length) {
+    alert("Necessário pelo menos um caracter especial na senha")
     return
   }
 
   let newName = ""
 
-  for (let i = 0; i < valueName.length; i ++) {
+  const listCharacteresName = [...valueName.trim()]
 
-    if (i == 0) {
-      newName += valueName[i].toUpperCase()
-
-    } else if (valueName[ i - 1] == " ") {
-      newName += valueName[i].toUpperCase()
-
+  listCharacteresName.forEach((caracter, index) => {
+    if (index == 0) {
+      newName += caracter.toUpperCase()
+    } else if (caracter[index - 1] == " ") {
+      newName += caracter.toUpperCase()
     } else {
-      newName += valueName[i]
+      newName += caracter
     }
-  }
-
+  })
+ 
   const createDate = new Date(valueDate)
 
   if (isNaN(createDate)) {
@@ -138,8 +139,9 @@ const verifyCollaborator = (event) => {
 
   const yearBirth = createDate.getFullYear()
   const dateNow = new Date()
+  const yearNow = dateNow.getFullYear()
 
-  if (dateNow.getFullYear() - yearBirth < 18) {
+  if ((yearNow - yearBirth) < 18) {
     alert("Precisa ser maior de 18 anos para se cadastrar")
     return
   }
@@ -150,21 +152,19 @@ const verifyCollaborator = (event) => {
 
 }
 
-
 const createCollaborator = (collaborator) => {
 
   api.post("/colaboradores", collaborator).then(response => {
-
     alert(`Colaborador cadastro com sucesso:\nNome: ${collaborator.nome} Email: ${collaborator.email} - Data nascimento: ${collaborator.dataNascimento}`)
     clearInputs()
+    return
 
   }).catch(Error => {
-
     alert("Não foi possivel cadastrar, verifique os dados e tente novamente!")
     console.log(Error)
-  })
+    return
 
-  
+  })
 
 }
 
@@ -182,7 +182,6 @@ const maskForDate = (event) => {
   
 }
 
-
 const clearInputs = () => {
   inputDate.textContent = ""
   inputName.textContent = ""
@@ -191,6 +190,10 @@ const clearInputs = () => {
 
 }
 
+window.onload = (() => {
+  getListCollabotarors()
+})
+
 const api = axios.create(
   {
     baseURL: "http://localhost:3000"
@@ -198,13 +201,14 @@ const api = axios.create(
 )
 
 const buttonRegister = document.getElementById("button-register")
-buttonRegister.addEventListener("click", alterPageToRegister)
-
 const buttonInput = document.getElementById("button-input")
+
 const inputDate = document.getElementById("input-date")
 const inputName = document.getElementById("input-name")
 const inputEmail = document.getElementById("input-email")
 const inputPassword = document.getElementById("input-password")
 
+buttonRegister.addEventListener("click", alterPageToRegister)
 buttonInput.addEventListener("click", verifyCollaborator)
 inputDate.addEventListener("keyup", maskForDate)
+
